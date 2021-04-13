@@ -1,0 +1,37 @@
+package Ada.APIRest.controller;
+
+import Ada.APIRest.entity.Rep;
+import Ada.APIRest.service.RepService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
+@RestController
+@RequestMapping(path = "/Rep")
+public class RepController {
+
+    @Autowired
+    RepService repService;
+
+    @GetMapping("/")
+    public @ResponseBody
+    Iterable<Rep> getAll() {
+        return repService.findAll();
+    }
+
+    @PostMapping(path = "/newRep")
+    public ResponseEntity<Rep> newRep(@RequestBody Rep rep ) {
+
+        Rep newRep = repService.save(rep);
+        return new ResponseEntity<>(newRep, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Rep> getStudent(@PathVariable("id") Long id) {
+        Optional<Rep> rep = repService.findById(id);
+        return rep.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+}
