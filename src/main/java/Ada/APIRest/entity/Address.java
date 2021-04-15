@@ -13,12 +13,6 @@ public class Address {
     private String city;
     private String country;
 
-
-    public int getId() {
-        return id;
-    }
-
-
     public Address() {
     }
 
@@ -28,6 +22,9 @@ public class Address {
         this.streetNum = streetNum;
         this.city = city;
         this.country = country;
+    }
+    public int getId() {
+        return id;
     }
 
     public String getStreet() {

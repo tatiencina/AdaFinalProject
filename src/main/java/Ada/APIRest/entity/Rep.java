@@ -11,12 +11,25 @@ public class Rep extends User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @MapsId
-    @JoinColumn(name = "organization_id", referencedColumnName = "id")
+    @JoinColumn(name = "organization_id", referencedColumnName = "id", insertable = false, updatable = false)
     public Organization organization;
+    @Column(name = "organization_id" )
+    private Long orgId;
 
-    protected Rep(String userName, String password, UserRole userRole, String name, String lastName, String email, IdType docType, String docNum, Organization organization) {
+    public long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(long orgId) {
+        this.orgId = orgId;
+    }
+
+
+
+    protected Rep(String userName, String password, UserRole userRole, String name, String lastName, String email, IdType docType, String docNum, Organization organization, Long orgId) {
         super(userName, password, userRole, name, lastName, email, docType, docNum);
         this.organization = organization;
+        this.orgId = orgId;
     }
 
     public Rep(Organization organization) {
@@ -26,4 +39,11 @@ public class Rep extends User {
 
     }
 
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
 }
