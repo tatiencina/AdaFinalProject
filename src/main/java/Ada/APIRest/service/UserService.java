@@ -24,9 +24,9 @@ public class UserService {
         return this.userRepo.findById(userId);
     }
 
-    public User save(@org.jetbrains.annotations.NotNull User user) {
+  /*  public User save(@org.jetbrains.annotations.NotNull User user) {
         user.setUserRole(UserRole.Admin);
         return this.userRepo.save(user);
-    }
+    }*/
 
 }

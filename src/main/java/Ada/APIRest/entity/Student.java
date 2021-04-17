@@ -21,7 +21,7 @@ public class Student extends User{
     private boolean isStudying;
 
     public Student(String userName, String password, UserRole userRole, String name, String lastName, String email, IdType docType, String docNum) {
-        super(userName, password, userRole, name, lastName, email, docType, docNum);
+        super(userName, password, name, lastName, email, docType, docNum);
     }
 
     public Student() {
@@ -29,7 +29,7 @@ public class Student extends User{
     }
 
     public Student(StudentDTO studentDTO) {
-        super(studentDTO.userName, studentDTO.password, studentDTO.userRole, studentDTO.name, studentDTO.lastName, studentDTO.email, studentDTO.docType, studentDTO.docNum) ;
+        super(studentDTO.userName, studentDTO.password, studentDTO.name, studentDTO.lastName, studentDTO.email, studentDTO.docType, studentDTO.docNum) ;
         this.birthday = studentDTO.birthday;
         this.gender = studentDTO.gender;
         this.address = studentDTO.address;

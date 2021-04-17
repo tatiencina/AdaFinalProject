@@ -15,7 +15,7 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="user_type",
         discriminatorType = DiscriminatorType.STRING)
-public abstract class User {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
