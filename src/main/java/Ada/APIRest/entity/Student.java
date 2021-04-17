@@ -15,7 +15,6 @@ public class Student extends User{
     private Date birthday;
     private Gender gender;
     @OneToOne (cascade = CascadeType.ALL)
-    @MapsId
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
     private boolean isStudying;

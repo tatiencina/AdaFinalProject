@@ -10,26 +10,13 @@ import javax.persistence.*;
 public class Rep extends User {
 
     @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "organization_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "organization_id", referencedColumnName = "id")
     public Organization organization;
-    @Column(name = "organization_id" )
-    private Long orgId;
-
-    public long getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(long orgId) {
-        this.orgId = orgId;
-    }
-
-
 
     protected Rep(String userName, String password, UserRole userRole, String name, String lastName, String email, IdType docType, String docNum, Organization organization, Long orgId) {
         super(userName, password, userRole, name, lastName, email, docType, docNum);
         this.organization = organization;
-        this.orgId = orgId;
+        //this.orgId = orgId;
     }
 
     public Rep(Organization organization) {

@@ -30,9 +30,9 @@ public class RepController {
         return new ResponseEntity<>(newRep, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<RepDTO> getRep(@PathVariable("id") Long id) {
         RepDTO rep = repService.findById(id);
         return new ResponseEntity<>(rep, HttpStatus.OK);
-    }
+    }*/
 }

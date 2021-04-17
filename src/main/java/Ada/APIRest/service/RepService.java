@@ -31,7 +31,7 @@ public class RepService {
             OrganizationDTO orgDto;
             if (org!= null) {
                  orgDto = new OrganizationDTO(rep.getOrganization());
-                 rep.setOrgId(org.getId());
+                // rep.setOrgId(org.getId());
             } else {
                  orgDto = new OrganizationDTO();
             }
@@ -46,13 +46,13 @@ public class RepService {
     public RepDTO findById(long repId) {
         Optional<Rep> repOpt = repRepo.findById(repId);
         if (repOpt.isPresent()) {
-            long orgID = repOpt.get().getOrgId();
+            long orgID = repOpt.get().getOrganization().getId();
             Optional<Organization> orgOpt = orgService.findById(orgID);
             //   org.ifPresent(organization -> repOpt.get().setOrganization(organization));
             if (orgOpt.isPresent()) {
-                /*Organization organization = orgOpt.get();
-                OrganizationDTO orgDto = new OrganizationDTO(organization.getName(), organization.getId(), organization.getStatus());
-               */
+                Organization organization = orgOpt.get();
+               /* OrganizationDTO orgDto = new OrganizationDTO(organization.getName(), organization.getId(), organization.getStatus());*/
+
                 OrganizationDTO orgDto = new OrganizationDTO((orgOpt.get()));
                 return new RepDTO(repOpt.get(), orgDto);
             } else{
@@ -69,7 +69,7 @@ public class RepService {
        Organization newOrg = orgService.save(new Organization (rep.organization.getName()));
        // guardo la nueva org (falta validar que no exista)
        rep.setOrganization(newOrg);
-       rep.setOrgId(newOrg.getId());
+      // rep.setOrgId(newOrg.getId());
         // save organization
         // setearle el id de la organization al rep
         return this.repRepo.save(rep);
