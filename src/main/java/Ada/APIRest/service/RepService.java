@@ -64,7 +64,7 @@ public class RepService {
     }
 
     public Rep save(Rep rep) {
-        rep.setUserRole(UserRole.Rep); // seteo el rol
+      //  rep.setRoles(UserRole.Rep); // seteo el rol
        // creo una nueva organization con el nombre que trae el json de rep
        Organization newOrg = orgService.save(new Organization (rep.organization.getName()));
        // guardo la nueva org (falta validar que no exista)

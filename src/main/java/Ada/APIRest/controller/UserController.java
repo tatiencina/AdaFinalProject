@@ -32,12 +32,12 @@ public class UserController {
         return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping(path = "/newUser")
+   /* @PostMapping(path = "/newUser")
     public ResponseEntity<User> newUser(@RequestBody User user) {
 
         User newUser = userService.save(user);
         return new ResponseEntity<>(newUser, HttpStatus.OK);
-    }
+    }*/
 }
 
 

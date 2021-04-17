@@ -22,7 +22,7 @@ public class RepDTO {
         this.lastName = rep.getLastName();
         this.docNum = rep.getDocNum();
         this.email = rep.getEmail();
-        this.userRole = rep.getUserRole();
+        //this.userRole = rep.getUserRole();
         this.docType = rep.getDocType();
         this.org = orgDto;
     }

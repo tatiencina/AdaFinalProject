@@ -25,7 +25,7 @@ public class StudentService {
     public Student save(StudentDTO studentDTO) {
         Student student = new Student(studentDTO);
         //student.setAddress(studentDTO.address);
-        student.setUserRole(UserRole.Student);
+       // student.setRoles(UserRole.Student);
         return this.studentRepo.save(student);
     }
 

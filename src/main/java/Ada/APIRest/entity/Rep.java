@@ -13,8 +13,8 @@ public class Rep extends User {
     @JoinColumn(name = "organization_id", referencedColumnName = "id")
     public Organization organization;
 
-    protected Rep(String userName, String password, UserRole userRole, String name, String lastName, String email, IdType docType, String docNum, Organization organization, Long orgId) {
-        super(userName, password, userRole, name, lastName, email, docType, docNum);
+    protected Rep(String userName, String password, String name, String lastName, String email, IdType docType, String docNum, Organization organization, Long orgId) {
+        super(userName, password, name, lastName, email, docType, docNum);
         this.organization = organization;
         //this.orgId = orgId;
     }
